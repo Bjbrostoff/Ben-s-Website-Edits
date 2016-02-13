@@ -1,0 +1,112 @@
+<!-- Navigation & Logo-->
+<link rel="stylesheet" href="/stylesheets/mainmenu/mainmenu.css">
+
+<div class="mainmenubanner container">
+
+    <!--<div class="row" style="height: 20px;">-->
+
+    <!--</div>-->
+
+    <nav id="mainmenubanner" class="nav nav-bar">
+        <div class="mainmenubanner">
+            <ul class="navbar-left">
+                <li class="logo-wrapper"><a href="#"><span>Teach Hub</span></a></li>
+                <% if (page == 'undefined') { %>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/">Classes</a>
+                    </li>
+                    <li>
+                        <a href="/">Gold Medal Teachers</a>
+                    </li>
+                    <li>
+                        <a href="/">Top Agencies</a>
+                    </li>
+                <% }else { %>
+                    <% if (page == "index") { %>
+                    <li class="active">
+                        <% } else { %>
+                    <li>
+                        <% } %>
+                        <a href="/">Home</a>
+                    </li>
+
+                    <% if (page == "cources") { %>
+                    <li class="active">
+                        <% } else { %>
+                    <li>
+                        <% } %>
+
+                        <a href="/courses">Classes</a>
+                    </li>
+
+                    <% if (page == "teachers") { %>
+                    <li class="active">
+                        <% } else { %>
+                    <li>
+                        <% } %>
+                        <a href="/teachers">Gold Medal Teachers</a>
+                    </li>
+                    <% if (page == "agencies") { %>
+                    <li class="active">
+                        <% } else { %>
+                    <li>
+                        <% } %>
+                        <a href="/agencies">Top Agencies</a>
+                    </li>
+
+                <% } %>
+
+            </ul>
+
+            <ul class="navbar-right">
+
+
+            <!--    <% if (typeof sessinfo == "undefined") { %>
+
+                <li><a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                <% }else{ %>-->
+
+                <% if (typeof user == 'undefined'){ %>
+
+                <li><a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                <% }else{ %>
+                <li>
+                    <a><%= user.username %></a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button id="usercenter-menu" class="btn btn-primary dropdown-toggle" aria-haspopup="true"
+                                data-toggle="dropdown" type="button">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="usercenter-menu">
+                            <li>
+                                <a href="/users/center">User Center</a>
+                                <a href="#">On</a>
+                                <a href="/">Sign Out</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </li>
+                <% } %>
+            <!--    <% } %>-->
+
+
+            </ul>
+
+        </div>
+    </nav>
+</div>
+<% if (typeof login == 'undefined') { %>
+
+<% }else { %>
+<% if (login == 'login'){ %>
+<% include ../../dialog/login.ejs %>
+<% }else { %>
+
+<% } %>
+<% } %>

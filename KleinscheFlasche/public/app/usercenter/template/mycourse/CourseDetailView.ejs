@@ -1,0 +1,79 @@
+<style type="text/css">
+
+	*{margin:0;padding:0;list-style-type:none;}
+	body{color:#666;font:12px/1.5 Arial;}
+	/* star */
+	#star{position:relative;width:600px;margin:20px auto;height:24px;}
+	#star ul,#star span{float:left;display:inline;height:19px;line-height:19px;}
+	#star ul{margin:0 10px;}
+	#star li{float:left;width:24px;cursor:pointer;text-indent:-9999px;background:url(/images/star.png) no-repeat;}
+	#star strong{color:#f60;padding-left:10px;}
+	#star li.on{background-position:0 -28px;}
+	#star p{position:absolute;top:20px;width:159px;height:60px;display:none;background:url(/images/icon.gif) no-repeat;padding:7px 10px 0;}
+	#star p em{color:#f60;display:block;font-style:normal;}
+
+
+</style>
+
+<div class="ibox float-e-margins white-bg"
+		style="width:275px;position: fixed;top: 60px;right: 0px; height: 740px; border-left: #e7eaec thick solid;border-bottom: #e7eaec thick solid;">
+    <div class="ibox-content">
+        <div class="tab-content">
+            <div id="contact-1" class="tab-pane active">
+                <div class="row m-b-lg">
+                    <div class="col-lg-8 text-center">
+                        <div class="m-b-sm">
+
+                            <div class="m-t-xs font-bold"><p><%= course.name %></p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-profile-scroll">
+                    <div class="full-height-scroll">
+
+                        <strong>基本信息</strong>
+
+                        <ul class="list-group clear-list">
+                            <li class="list-group-item fist-item">
+                                课程名&nbsp;&nbsp;:&nbsp;<%= course.name %>cccccccccccccccccccccccccccccc
+                            </li>
+
+
+                        </ul>
+                        <strong>课程简介</strong>
+                        <p>
+                            <%= course.introduction %>ccccccccccccccc
+                        </p>
+                        <hr/>
+
+                    </div>
+	                <div class="full-height-scroll">
+
+		                <strong>课程评分</strong>
+
+		                <div id="star">
+
+			                <ul>
+				                <li class="on"><a href="javascript:;">1</a></li>
+				                <li class="on"><a href="javascript:;">2</a></li>
+				                <li class="on"><a href="javascript:;">3</a></li>
+				                <li class="on"><a href="javascript:;">4</a></li>
+				                <li class=""><a href="javascript:;">5</a></li>
+			                </ul>
+			                <span><strong>4 分</strong> (质量不错，与卖家描述的基本一致，还是挺满意的)</span>
+			                <p style="display: none; left: 11px;"><em><b>1</b> 分 很不满意</em>差得太离谱，与卖家描述的严重不符，非常不满</p>
+		                </div>
+		                <hr/>
+
+		                <strong>难易度评分</strong>
+		                <p>
+			                <%= course.introduction %>ccccccccccccccc
+		                </p>
+		                <hr/>
+
+	                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

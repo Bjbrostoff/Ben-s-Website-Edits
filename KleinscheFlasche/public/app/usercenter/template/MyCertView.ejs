@@ -1,0 +1,360 @@
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/verify.js"></script>
+
+<div style="margin-left: 0px; margin-bottom: 19px;" class="row wrapper border-bottom white-bg page-heading">
+	<div class="col-sm-4">
+		<h2>我的认证</h2>
+		<ol class="breadcrumb">
+			<li>
+				<a href="#home">主页</a>
+			</li>
+			<li class="active">
+				<strong>我的认证</strong>
+			</li>
+		</ol>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-3">
+
+	</div>
+	<div class="col-lg-6">
+		<div class="form-horizontal">
+			<input type="hidden" name="userId" >
+			<input type="hidden" id="mycert_id" name="_id" value="<%= mycert._id== undefined?'':mycert._id %>" >
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">角色选择：</label>
+				<div class="col-sm-10">
+					<%if(mycert.usertype == '0'){%>
+					<input  class="mycert_radio" style="    margin: 0 10px 0 51px;"  checked='checked' type="radio" name="usertype" value="1"/>
+					<span> 老师 </span>
+					<input class="mycert_radio" style="    margin: 0 10px 0 51px;"   type="radio" name="usertype" value="2"/>
+					<span> 机构用户 </span>
+					<%}else if(mycert.usertype == '1'){%>
+					<input  class="mycert_radio" style="    margin: 0 10px 0 51px;"  checked='checked' disabled="disabled"    type="radio" name="usertype" value="1"/>
+					<span> 老师 </span>
+
+					<input class="mycert_radio" style="    margin: 0 10px 0 51px;"  disabled = 'disabled'  type="radio" name="usertype" value="2"/>
+					<span> 机构用户 </span>
+					<%}else{%>
+					<input  class="mycert_radio" style="    margin: 0 10px 0 51px;"  disabled="disabled"    type="radio" name="usertype" value="1"/>
+					<span> 老师 </span>
+					<input class="mycert_radio" style="    margin: 0 10px 0 51px;" checked='checked' disabled = 'disabled'  type="radio" name="usertype" value="2"/>
+					<span> 机构用户 </span>
+					<%}%>
+					<div id="erole" style="display: none;">
+
+					</div>
+				</div>
+			</div>
+
+
+			<div id="teacher">
+				<div class="form-group">
+					<label  class="col-sm-2 control-label">真实姓名：</label>
+					<div class="col-sm-10">
+						<input class="form-control mycert_teacher" type="text" name="name" value="<%= mycert.name== undefined?'':mycert.name %>"/>
+						<div id="ename" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label" >证件类型：</label>
+					<div class="col-sm-10">
+						<select class="form-control mycert_teacher"  name="credentype" >
+							<option  value="">请选择</option>
+							<option <%= mycert.credentype== '1'?"selected='selected'":"" %> value ="1">身份证</option>
+							<option <%= mycert.credentype== '2'?"selected='selected'":"" %> value="2">签证</option>
+
+						</select>
+						<div id="ecredentype" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label" >证件号码：</label>
+					<div class="col-sm-10">
+						<input class="form-control mycert_teacher"  type="text" name="credencode" value="<%= mycert.credencode== undefined?'':mycert.credencode %>"/>
+						<div id="ecredencode" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<form id="frmUploadFile"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+						<label  class="col-sm-2 control-label">证件照片：</label>
+						<div class="col-sm-10">
+							<div class="input-group">
+								<% if(mycert.credenimage == undefined ){%>
+								<input id="file" class="form-control"   type="file" name="file" />
+								<img style="width:200px;height: 200px;display: none;" src=""  id="showImg">
+							   <span class="input-group-btn">
+								   	<button class="btn btn-primary" id="but" onclick="uploadFile('','crenden');" type="button" value="上传">上传</button>
+							<button class="btn btn-primary" id="del"  onclick="delImg('','crenden');"  type="button" style="display: none;" value="删除" >
+								删除
+							</button>
+							   </span>
+								<%}else{%>
+								<input id="file" style="display:none;" class="form-control"   type="file" name="file" />
+								<img style="width:200px;height: 200px;" src="<%=mycert.credenimage%>"  id="showImg">
+							   <span class="input-group-btn">
+								   	<button class="btn btn-primary" id="but" onclick="uploadFile('','crenden');" style="display: none;" type="button" value="上传">上传</button>
+							<button class="btn btn-primary" id="del"  onclick="delImg('','crenden');"  type="button"  value="删除" >
+								删除
+							</button>
+							   </span>
+								<%}%>
+							</div>
+
+							<div id="ecredencode" style="display: none;">
+								<input type="hidden" class="mycert_teacher" value="<%=mycert.credenimage == undefined?'':mycert.credenimage%>" name="credenImg" id="crenden">
+							</div>
+						</div>
+					</form>
+				</div>
+
+
+
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label" >收款方式：</label>
+					<div class="col-sm-10">
+						<input class="form-control mycert_teacher" value="<%=mycert.payway == undefined ?'':mycert.payway%>" type="text" name="payway" />
+						<div id="epayway" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+				<div style="text-align:center;" class="form-group">
+
+					<label id="more"  style="cursor: pointer;">更多</label>
+					<label id="hide" style="cursor: pointer;display: none;">隐藏</label>
+					<hr  color="#FF0000" width="100%" size="1">
+				</div>
+				<div id="expTeacher" class="hidDiv" style="display: none;">
+
+					<div class="form-group">
+
+						<label class="col-sm-2 control-label"> 学位：</label>
+						<div class="col-sm-10">
+							<select class="form-control mycert_teacher" name="level">
+								<%=mycert.payway == undefined ?'':mycert.payway%>
+								<% if(mycert.acadecerti == undefined){%>
+									<option value="">请选择</option>
+									<option value="0">学士以下</option>
+									<option value ="1">学士</option>
+									<option value ="2">硕士</option>
+									<option value ="3">博士</option>
+								<%}else{%>
+									<option value="">请选择</option>
+									<option <%= mycert.acadecerti.level== '0'?"selected='selected'":"" %>  value="0">学士以下</option>
+									<option <%= mycert.acadecerti.level== '1'?"selected='selected'":"" %> value ="1">学士</option>
+									<option <%= mycert.acadecerti.level== '2'?"selected='selected'":"" %> value ="2">硕士</option>
+									<option <%= mycert.acadecerti.level== '3'?"selected='selected'":"" %> value ="3">博士</option>
+								<%}%>
+							</select>
+						</div>
+
+					</div>
+					<div class="form-group">
+
+						<label class="col-sm-2 control-label" >学位证书号码：</label>
+						<div class="col-sm-10">
+							<% if(mycert.acadecerti == undefined){%>
+							<input type="text" class="form-control mycert_teacher" name="code"/>
+							<%}else{%>
+							<input type="text"  value="<%=mycert.acadecerti.code%>" class="form-control mycert_teacher" name="code"/>
+							<%}%>
+						</div>
+
+					</div>
+
+					<div class="form-group">
+						<form id="frmUploadFile1"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+							<label class="col-sm-2 control-label" >学位证件照片：</label>
+							<div class="col-sm-10">
+								<% if(mycert.acadecerti == undefined){%>
+									<div class="input-group">
+										<input id="file1" class="form-control"   type="file" name="file" />
+										<img style="width:200px;height: 200px;display: none;" src=""  id="showImg1">
+								             <span class="input-group-btn">
+									        <button class="btn btn-primary" id="but1" onclick="uploadFile('1','imgCert');" type="button" value="上传">上传</button>
+											<button class="btn btn-primary" id="del1"  onclick="delImg('1','imgCert');"  type="button" style="display: none;" value="删除" >
+												删除
+											</button>
+										   </span>
+									</div>
+									<input type="hidden" class="mycert_teacher" name="image" id="imgCert">
+								<%}else{%>
+									<div class="input-group">
+										<input id="file1" class="form-control"  style="display: none;"  type="file" name="file" />
+										<img style="width:200px;height: 200px;" src="<%=mycert.acadecerti.image%>"  id="showImg1">
+									             <span class="input-group-btn">
+										        <button class="btn btn-primary" id="but1" onclick="uploadFile('1','imgCert');" style="display: none;"  type="button" value="上传">上传</button>
+												<button class="btn btn-primary" id="del1"  onclick="delImg('1','imgCert');"  type="button" value="删除" >
+													删除
+												</button>
+											   </span>
+									</div>
+									<input type="hidden" class="mycert_teacher" value="<%=mycert.acadecerti.image%>" name="image" id="imgCert">
+								<%}%>
+
+
+
+							</div>
+
+						</form>
+					</div>
+
+					<div class="form-group">
+
+						<label class="col-sm-2 control-label" >荣誉资质说明：</label>
+						<div class="col-sm-10">
+							<textarea type="text" class="form-control mycert_teacher" name="info"></textarea>
+						</div>
+
+					</div>
+
+					<div class="form-group">
+						<form id="frmUploadFile2"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+							<label class="col-sm-2 control-label">荣誉资质照片：</label>
+							<div class="col-sm-10">
+								<div class="input-group">
+									<input id="file2" class="form-control"   type="file" name="file" />
+									<img style="width:200px;height: 200px;display: none;" src=""  id="showImg2"/>
+							             <span class="input-group-btn">
+								    	<button class="btn btn-primary" id="but2" onclick="uploadFile('2','honorImg');" type="button" value="上传">上传</button>
+										<button class="btn btn-primary" id="del2"  onclick="delImg('2','honorImg');"  type="button" style="display: none;" value="删除" >
+											删除
+										</button>
+									   </span>
+								</div>
+								<input type="hidden" class="mycert_teacher" name="honorImg" id="honorImg">
+							</div>
+
+						</form>
+					</div>
+					<div class="form-group">
+
+						<label class="col-sm-2 control-label">工作经历：</label>
+						<div class="col-sm-10">
+							<textarea type="text" class="form-control mycert_teacher"  name="workexp"><%=mycert.workexp == undefined ? '':mycert.workexp%></textarea>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div id="org" style="display: none;">
+				<div class="form-group">
+					<label class="col-sm-2 control-label" >收款方式：</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="payway" />
+						<div id="epayway" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="form-group text-center">
+				<button class="btn btn-primary" id="mycertsub" type="button" name="submit" value="提交">提交</button>
+
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-3">
+
+	</div>
+
+</div>
+
+<script>
+
+	function uploadFile(i,tid){
+
+		if(i == undefined){
+			i = '';
+		}
+		var fileValue = $("#file"+i).val();
+		if(fileValue == ''){
+			bootbox.alert("请先选择要上传的文件");
+			return ;
+		}
+		var formData = new FormData($("#frmUploadFile"+i)[0]);
+
+		$.ajax({
+			url: '/users/fileUpload',
+			type: 'POST',
+			data: formData,
+			async: false,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function(data){
+				if(200 === data.code) {
+
+					$("#showImg"+i).attr('src', data.msg.url);
+					$("#showImg"+i).show();
+					$("#file"+i).hide();
+					$("#but"+i).hide();
+					$("#del"+i).show();
+					$("#"+tid).val(data.msg.url);
+				} else {
+					bootbox.alert(data.msg);
+				}
+
+			},
+			error: function(){
+				$("#spanMessage").html("与服务器通信发生错误");
+			}
+		});
+	}
+
+	function delImg(i,tid){
+		if(i == undefined){
+			i = '';
+		}
+		$("#"+tid).val('');
+		$("#showImg"+i).attr('src', '');
+		$("#showImg"+i).hide();
+		$("#file"+i).val('');
+		$("#file"+i).show();
+		$("#but"+i).show();
+		$("#del"+i).hide();
+	}
+
+
+	(function () {
+
+
+
+		$(":radio[name='usertype']").click(function(){
+			var userType = $(this).val();
+
+			if(userType == 1){
+
+				$("#teacher").show();
+				$("#org").hide();
+			}else{
+
+				$("#org").show();
+				$("#teacher").hide();
+			}
+			$(".hidDiv").hide();
+		});
+
+
+
+
+
+
+	})();
+</script>

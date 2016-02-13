@@ -1,0 +1,66 @@
+<div class="row leftmargin animated fadeInRight">
+    <div class="row wrapper leftmargin border-bottom white-bg page-heading">
+        <div class="col-lg-8">
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2>我的老师</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#home">主页</a>
+                        </li>
+                        <li class="active">
+                            <strong>我的老师</strong>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row m-b-sm m-t-sm">
+                <div class="btn-group col-md-3">
+                    <button type="button" id="btn-refresh" class="btn btn-white btn-sm" ><i class="fa fa-refresh"></i> 刷新</button>
+                    <button type="button" id="btn-trash" class="btn btn-white btn-sm" ><i class="fa fa-trash"></i> 清空</button>
+                </div>
+                <div class="col-md-9 pull-right">
+                    <div class="input-group">
+                        <input id="input-search" type="text"  class="input-sm form-control">
+                        <span class="input-group-btn">
+                            <button id="btn-search" type="button" class="btn btn-sm btn-primary"> 搜索</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="project-list">
+                    <div class="row tab-content">
+                        <div class="toolbar">
+                            <ul class="nav nav-tabs">
+                                <span class="pull-right small text-muted"></span>
+                                <li class="myteachers-nav-tab active" data-state="-1"><a data-toggle="tab" ><i class="fa fa-user"></i> 所有</a></li>
+                                <li class="myteachers-nav-tab" data-state="0"><a data-toggle="tab" ><i class="fa fa-user"></i> 正在授课</a></li>
+                                <li class="myteachers-nav-tab" data-state="1"><a data-toggle="tab" ><i class="fa fa-briefcase"></i> 曾经授课</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row tab-content">
+                        <div id="myteachers-list">
+                        </div>
+                     </div>
+                   </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div id="myteachers-chart">
+                        </div>
+                    </div>
+                    <div id="myteachers-chart-desc">
+                    </div>
+                </div>
+            </div>
+            <div id="myteachers-detail-container">
+            </div>
+        </div>
+    </div>
+</div>

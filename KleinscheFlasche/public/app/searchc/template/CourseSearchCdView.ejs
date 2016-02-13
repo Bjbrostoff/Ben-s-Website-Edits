@@ -1,0 +1,37 @@
+<div id="wrapper">
+
+    <div class="teacher-content">
+        <div class="teacher-nav-box">
+            <div class="teacher-nav-hd">
+                <span>课程搜索</span>
+                <div class="input-group teacher-search pull-right">
+                    <input id="search-course-input" type="text" class="form-control input-sm" name="search" placeholder="搜索关键字">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-sm btn-primary search-button">
+                            <i class="fa fa-search"></i>
+                            搜索
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="condition-item-list">
+
+            </div>
+        </div>
+        <div class="teacher-tool-bar clearfix">
+            <div id ="sort-c-list" class="tool-left l">
+                <a class="sort-item active" sorttag = "score">推荐</a>
+                <a class="sort-item" sorttag = "likes">热度</a>
+            </div>
+            <div class="tool-right r">
+                <span class="tool-item tool-pager">
+                    <span class="pager-num">
+                        <b id="searchc-nowpage" class="pager-cur"><%= nowpage%></b>/<em id="searchc-totalpage" class="pager-total"><%= totalpage%></em>
+                    </span>
+                    <a id="page-prev-btn" class="pager-action pager-prev hide-text disabled">上一页</a>
+                    <a id="page-next-btn" class="pager-action pager-next hide-text disabled">下一页</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,384 @@
+<html>
+<head>
+    <title>注册</title>
+	<link href="/Inspinia/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/Inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link href="/Inspinia/css/plugins/iCheck/custom.css" rel="stylesheet">
+	<link href="/Inspinia/css/animate.css" rel="stylesheet">
+	<link href="/Inspinia/css/style.css" rel="stylesheet">
+
+	<link href="/Inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+
+    <style>
+        .btn-primary {
+            background-color: #1ab394;
+            border-color: #1ab394;
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            background-color: #18a689;
+            border-color: #18a689;
+            color: #FFFFFF;
+        }
+
+        .btn-primary:active,
+        .btn-primary:focus {
+            background-color: #1ab394;
+            border-color: #1ab394;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body style="background-color: white;   ">
+<% include ../includes/header/nav/normal.ejs %>
+
+<div class="container">
+    <div class="row" style="height: 60px;">
+
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
+
+        </div>
+        <div class="col-lg-8">
+            <svg height="80px" width="750px" viewBox="0 0 750 80">
+                <g>
+                    <line class="axis-line" x1="20" y1="35" x2="680" y2="35"
+                          stroke="#ff0000">
+
+                    </line>
+                    <rect x="20" y="30" height="10" width="660" fill="orange">
+
+                    </rect>
+                </g>
+                <g transform="translate(20,0)">
+                    <circle r="30" cx="30" cy="35" fill="#1ab394">
+
+                    </circle>
+                    <text x="18" y="40" fill="white">
+                        注册
+                    </text>
+
+                    <path d="M 100 15 L 120 35 L 100 55 L 220 55 L 240 35 L 220 15 Z" fill="#1ab394">
+
+                    </path>
+                    <text x="140" y="40" fill="yellow">
+                        1.信息填写
+                    </text>
+
+                    <path d="M 280 15 L 300 35 L 280 55 L 400 55 L 420 35 L 400 15 Z" fill="#1ab394">
+
+                    </path>
+                    <text x="320" y="40" fill="white">
+                        2.信息认证
+                    </text>
+
+                    <path d="M 460 15 L 480 35 L 460 55 L 580 55 L 600 35 L 580 15 Z" fill="#1ab394">
+
+                    </path>
+                    <text x="500" y="40" fill="white">
+                        3.信息审核
+                    </text>
+
+
+                    <circle r="30" cx="680" cy="35" fill="#1ab394">
+
+                    </circle>
+                    <text x="665" y="40" fill="white">
+                        完成
+                    </text>
+                </g>
+            </svg>
+        </div>
+
+        <div class="col-lg-2">
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+
+        </div>
+        <div class="col-lg-6">
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">邮箱：</label>
+					<div class="col-sm-10">
+                      <input class="form-control" type="text" name="email" value=""/>
+						<div id="emsg" style="display: none;">
+
+						</div>
+					</div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">输入验证码：</label>
+	                <div class="col-sm-10">
+		                <div class="input-group">
+
+	                        <input class="form-control" type="text" name="vcCode" value=""/>
+			                   <span class="input-group-btn">
+				                <button id="hsbtn" class="btn btn-primary" type="button" value="获取验证码">获取验证码</button> </span>
+						</div>
+		                <div id="vmsg" style="display: none;">
+
+		                </div>
+	                </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="pwdinput">密码：</label>
+	                <div class="col-sm-10">
+                        <input id="pwdinput" class="form-control" type="password" name="password1"/>
+					</div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" >确认密码：</label>
+	                <div class="col-sm-10">
+                        <input class="form-control" type="password" name="password2"/>
+		                <div id="pmsg2" style="display: none;">
+
+		                </div>
+					</div>
+
+                </div>
+                <div class="form-group text-center">
+                    <button class="btn btn-primary" type="button" name="submit" value="注册">注册</button>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-3">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/bootbox/bootbox.js" ></script>
+<script src="/javascripts/verify.js"></script>
+<script>
+    function verifyForm() {
+        var email = $('[name=email]').val();
+        var password = $('[name=password1]').val();
+        var password2 = $('[name=password2]').val();
+        var vcCode = $('[name=vcCode]').val();
+        if (!email) {
+            $("#emsg").html('请输入邮箱');
+            $("#emsg").css({
+                color: 'red',
+                display: 'block'
+            });
+            return false;
+        } else {
+            $("#emsg").html('');
+            $("#emsg").css({
+                display: 'none'
+            });
+        }
+
+        if (!vcCode) {
+            $("#vmsg").html('请输入验证码');
+            $("#vmsg").css({
+                color: 'red',
+                display: 'block'
+            });
+            return false;
+        } else {
+            $("#vmsg").html('');
+            $("#vmsg").css({
+                display: 'none'
+            });
+        }
+
+        if (!password || !password2) {
+            $("#pmsg2").html('请输入密码');
+            $("#pmsg2").css({
+                color: 'red',
+                display: 'block'
+            });
+            return false;
+        } else {
+            $("#pmsg2").html('');
+            $("#pmsg2").css({
+                display: 'none'
+            });
+        }
+
+	    if (password.length < 6 || password.length > 13) {
+		    $("#pmsg2").html('请输入大于6，小于13位的密码');
+		    $("#pmsg2").css({
+			    color: 'red',
+			    display: 'block'
+		    });
+		    return false;
+	    } else {
+		    $("#pmsg2").html('');
+		    $("#pmsg2").css({
+			    display: 'none'
+		    });
+	    }
+
+        if (password && password2 && password != password2) {
+            $("#pmsg2").html('输入密码不同');
+            $("#pmsg2").css({
+                color: 'red',
+                display: 'block'
+            });
+            return false;
+        } else {
+            $("#pmsg2").html('');
+            $("#pmsg2").css({
+                display: 'none'
+            });
+        }
+
+        if (email && !verifyEmail(email)) {
+            $("#emsg").html('邮箱格式错误');
+            $("#emsg").css({
+                color: 'red',
+                display: 'block'
+            });
+            return false;
+        }
+        else {
+            $("#emsg").html('');
+            $("#emsg").css({
+                display: 'none'
+            });
+        }
+
+
+        return true;
+    }
+    (function () {
+        $('[name=submit]').click(function () {
+            var email = $('[name=email]').val();
+            var password = $('[name=password1]').val();
+            var vcCode = $('[name=vcCode]').val();
+
+            if (!verifyForm()) return;
+            $.ajax({
+                type: 'post',
+                url: '/users/register',
+                data: {email: email, password: password, vcCode: vcCode},
+                success: function (data) {
+                    console.log(data);
+	                if(data.success == true){
+
+		                bootbox.confirm({
+			                buttons: {
+				                confirm: {
+					                label: '确认',
+					                className: 'btn-myStyle'
+				                },
+				                cancel: {
+					                label: '取消',
+					                className: 'btn-default'
+				                }
+			                },
+			                message: '保存成功，是否进入教师或者机构认证？',
+			                callback: function(result) {
+				                console.log(result);
+				                if(result){
+					                $.ajax({
+						                type: 'post',
+						                url: '/users/regToSession',
+						                data: {userId: data.uid,username:email},
+						                success:function(data){
+							                console.log(data);
+							                window.location.href='users/toBasicAuth';
+						                },error:function(data){
+
+						                }
+
+					                })
+				                }else{
+					                window.location.href= '/';
+				                }
+			                }
+		                });
+
+
+
+	                }else{
+                        bootbox.alert(data.message);
+	                }
+
+                }, error: function () {
+
+                }
+            })
+        })
+        var util = {
+            wait: 60,
+            hsTime: function (that) {
+                _this = this;
+                if (_this.wait == 0) {
+                    $('#hsbtn').removeAttr("disabled").html('请重发验证码');
+                    _this.wait = 60;
+                } else {
+                    var _this = this;
+                    $(that).attr("disabled", true).html('在' + _this.wait + '秒后点此重发');
+                    _this.wait--;
+                    setTimeout(function () {
+                        _this.hsTime(that);
+                    }, 1000)
+                }
+            }
+        }
+        $("#hsbtn").click(function () {
+            var email = $('[name=email]').val();
+	        if (!email) {
+		        $("#emsg").html('请输入邮箱');
+		        $("#emsg").css({
+			        color: 'red',
+			        display: 'block'
+		        });
+		        return false;
+	        } else {
+		        $("#emsg").html('');
+		        $("#emsg").css({
+			        display: 'none'
+		        });
+	        }
+	        if (email && !verifyEmail(email)) {
+		        $("#emsg").html('邮箱格式错误');
+		        $("#emsg").css({
+			        color: 'red',
+			        display: 'block'
+		        });
+		        return false;
+	        }
+	        else {
+		        $("#emsg").html('');
+		        $("#emsg").css({
+			        display: 'none'
+		        });
+	        }
+            $.ajax({
+                type: 'post',
+                url: '/users/sendEmail',
+                data: {email: email},
+                success: function (data) {
+                }, error: function () {
+                }
+            })
+	        util.wait = 60;
+            util.hsTime('#hsbtn');
+        })
+    })();
+</script>
+</html>

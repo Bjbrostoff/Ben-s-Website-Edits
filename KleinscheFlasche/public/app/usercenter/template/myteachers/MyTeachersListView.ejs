@@ -1,0 +1,31 @@
+<div class="full-height-scroll">
+    <% console.log(teachers)%>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <tbody>
+            <% _.each(teachers, function(teacher){ %>
+            <tr>
+                <td class="client-avatar"><img alt="image" src="<%= teacher['portrait'] %>"></td>
+                <td><a data-toggle="tab" class="client-link"><%= teacher['name'] %></a></td>
+                <td class="contact-type"><i class="fa fa-envelope"> </i></td>
+                <td><a href="mailto:<%= teacher['email'] %>"><%= teacher['email'] %></a></td>
+                <td class="contact-type"><i class="fa fa-phone"> </i></td>
+                <td> <%= teacher['phone'] %></td>
+                <td class="client-status">
+                    <% if(teacher['state']['type'] == 1){ %>
+                    <span class="label label-primary"><%= teacher['state']['name'] %></span>
+                    <% }else{ %>
+                    <span class="label label-success"><%= teacher['state']['name'] %></span>
+                    <%}%>
+                </td>
+                <td class="client-score">
+                    <% if(teacher['state']['type'] > 0){ %><!--已经结束的老师所给予的评分-->
+                    <span class="badge badge-primary"><%= teacher['course']['score'] %></span>
+                    <% } %>
+                </td>
+            </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

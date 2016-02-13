@@ -1,0 +1,149 @@
+{
+  "courses": [
+    {
+      "id": "000001",
+      "name": "Biology",
+      "img": "/images/biology.jpg",
+      "introduction": "High School Biology",
+      "teacher": "Ozmatazz Buckshank",
+      "score": "9.8"
+    },
+    {
+      "code": "00002",
+      "name": "Chemistry",
+      "img": "/images/Chemistry.jpg",
+      "introduction": "AP Chemistry",
+      "teacher": "Legume Duprix",
+      "score": "9.8"
+    },
+    {
+      "code": "00003",
+      "name": "Basic English",
+      "img": "/images/woman.jpg",
+      "introduction": "English for College",
+      "teacher": "Stevie Nix",
+      "score": "9.8"
+    },
+    {
+      "code": "00004",
+      "name": "K-6 English",
+      "img": "/images/Kindergarten.jpg",
+      "introduction": "1 on 1 English for Young Kids",
+      "teacher": "Hingle McKringleberry",
+      "score": "9.8"
+    },
+    {
+      "code": "00005",
+      "name": "American History 1 on 1",
+      "img": "/images/history.jpg",
+      "introduction": "Harvard Graduate Teaches History 1 on 1",
+      "teacher": "Decatholac Mango",
+      "score": "9.8"
+    },
+    {
+      "code": "00006",
+      "name": "Premium English 1 on 1",
+      "img": "/images/I don't know.jpg",
+      "introduction": "Greatest Teacher Ever Teaches English",
+      "teacher": "Javaris Lavar Jamarison Lamar",
+      "score": "9.8"
+    },
+    {
+      "id": "000007",
+      "name": "SAT Math for Dummies",
+      "img": "/images/math.jpg",
+      "introduction": "I can teach anyone to pass the SAT math section",
+      "teacher": "Vagonius Thicket-Suede",
+      "score": "9.8"
+    },
+    {
+      "code": "00008",
+      "name": "Mrs. Smith's 3rd Grade English",
+      "img": "/images/raising hands.jpg",
+      "introduction": "I teach kids how to raise their hands",
+      "teacher": "Mrs. Smith",
+      "score": "9.8"
+    }
+  ],
+
+  "teachers": [
+    {
+      "userinfo":{
+        "id": "id",
+        "name": "Chrissy Longstockings",
+        "nationality": "American",
+        "portrait": "#",
+		"language": "English"
+      },
+      "custominfo":{
+        "graduated":"毕业学校",
+        "degree":"学位",
+        "servexerti":"荣誉资质",
+        "declaration":"来吧同学.来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学"
+      }
+    },
+    {
+      "userinfo":{
+        "id": "id",
+        "name": "张三",
+        "nationality": "nationality",
+        "portrait": "#"
+      },
+      "custominfo":{
+        "graduated":"毕业学校",
+        "degree":"学位",
+        "servexerti":"荣誉资质",
+        "declaration":"来吧同学.来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学"
+      }
+    },
+    {
+      "userinfo":{
+        "id": "id",
+        "name": "张三",
+        "nationality": "nationality",
+        "portrait": "#"
+      },
+      "custominfo":{
+        "graduated":"毕业学校",
+        "degree":"学位",
+        "servexerti":"荣誉资质",
+        "declaration":"来吧同学.来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学"
+      }
+    }
+
+  ],
+  "agency": [
+    {
+      "code": "00001",
+      "name": "滨江区xx英语班",
+      "address": "滨江区浦沿街道太阳国际公寓",
+      "courses": "100",
+      "teachers": "20",
+      "students": "500"
+    },
+    {
+      "code": "00002",
+      "name": "滨江区xx少儿口语班",
+      "address": "滨江区浦沿街道临江花园",
+      "courses": "100",
+      "teachers": "20",
+      "students": "500"
+    },
+    {
+      "code": "00003",
+      "name": "滨江区xx成人口语班",
+      "address": "滨江区浦沿街道联庄一区CBD",
+      "courses": "100",
+      "teachers": "20",
+      "students": "500"
+    },
+    {
+      "code": "00004",
+      "name": "滨江区xx职场英语班",
+      "address": "滨江区浦沿街道联庄二区CBD",
+      "courses": "100",
+      "teachers": "20",
+      "students": "500"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div id='external-events'>
+            <p>拖课程进入日历</p>
+            <%for(var i=0;i<calendarData.length;i++){%>
+            <div class='draggable external-event navy-bg' _id="<%=calendarData[i]._id %>" sa="<%=calendarData[i].date %>"><%=calendarData[i].name%></div>
+            <%}%>
+            <p class="m-t">
+                <input type='checkbox' id='drop-remove' class="i-checks" checked/> <label
+                        for='drop-remove'>拖拽后移除</label>
+            </p>
+        </div>
+    </div>
+</div>

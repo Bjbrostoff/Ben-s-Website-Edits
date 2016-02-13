@@ -1,0 +1,93 @@
+<div class="ibox col-sm-3 float-e-margins white-bg animated fadeInRight"
+     style="position: fixed;top: 60px;right: 0px; height: 740px; border-left: #e7eaec thick solid;border-bottom: #e7eaec thick solid;">
+    <div>
+        <div class="ibox-title">
+            <h5>详细资料</h5>
+            <div class="ibox-tools">
+                <a class="close-link teacher-detail-close">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="tab-content">
+                <div id="contact-1" class="tab-pane active">
+                    <div class="row m-b-lg">
+                        <div class="col-lg-4 text-center">
+                            <h2><%= teacher.name %></h2>
+
+                            <div class="m-b-sm">
+                                <img alt="头像" class="img-circle" src="<%= teacher.portrait %>"
+                                     style="width: 62px">
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <strong>
+                                个人介绍
+                            </strong>
+
+                            <p>
+                                <%= teacher.optioninfo.info.value %>
+                            </p>
+                            <button id="profile-button" type="button" class="btn btn-primary btn-sm btn-block"><i
+                                        class="fa fa-home"></i> 老师主页
+                            </button>
+                        </div>
+                    </div>
+                    <div class="teacher-detail-scroll">
+                        <div class="full-height-scroll">
+
+                            <strong>基本信息</strong>
+
+                            <ul class="list-group clear-list">
+                                <li class="list-group-item fist-item">
+                                    性别&nbsp;&nbsp;:&nbsp;<%= teacher.sex %>
+                                </li>
+                                <li class="list-group-item">
+                                    年龄&nbsp;&nbsp;:&nbsp;<%= teacher.age %>
+                                </li>
+                                <li class="list-group-item">
+                                    国籍&nbsp;&nbsp;:&nbsp;<%= teacher.nationality %>
+                                </li>
+                                <li class="list-group-item">
+                                    所在城市:&nbsp;<%= teacher.city %>
+                                </li>
+                                <li class="list-group-item">
+                                    擅长语言:&nbsp;<%= teacher.optioninfo.language.value %>
+                                </li>
+                                <li class="list-group-item">
+                                    擅长学科:&nbsp;<%= teacher.optioninfo.skilledcourse.value %>
+                                </li>
+                                <li class="list-group-item">
+                                    星级评分:&nbsp;<%= teacher.starlevel %>
+                                </li>
+
+                            </ul>
+                            <strong>个人宣言</strong>
+                            <p>
+                                <%= teacher.optioninfo.info.value %>
+                            </p>
+                            <hr/>
+                            <strong>荣誉资质</strong>
+                            <div id="vertical-timeline" class="vertical-container dark-timeline">
+                                <% teacher.servexerti.forEach(function(servexerti){ %>
+                                <div class="vertical-timeline-block">
+                                    <div class="vertical-timeline-icon gray-bg">
+                                        <i class="fa fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="vertical-timeline-content">
+                                        <p><%= servexerti.info %>
+                                        </p>
+                                        <span class="vertical-date small text-muted"><%= servexerti.time %></span>
+                                    </div>
+                                </div>
+
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

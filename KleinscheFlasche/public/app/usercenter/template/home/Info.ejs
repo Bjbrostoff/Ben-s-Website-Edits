@@ -1,0 +1,23 @@
+<div>
+    <%for(var i=0;i<info.length;i++){%>
+
+    <div class="row">
+        <div class="col-md-1 col-sm-1 col-xs-1">
+            <!--<a href=<%info[i].url%>>-->
+            <img src=<%=info[i].imgUrl%> width="25px">
+            <!--</a>-->
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8">
+            <!--<a href=<%=info[i].url%>>-->
+            <%= info[i].info%>
+            <!--</a>-->
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            <p style="text-align: right;">
+                <%= info[i].time%>
+            </p>
+        </div>
+
+    </div>
+    <%}%>
+</div>

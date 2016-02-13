@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3"><strong>上课地点：</strong><input id="location" check-type="required" required-message="请输入上课地点！！" ></div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3">
+                        <div class="bootstrap-timepicker">
+                            <strong>上课时间：</strong><input id="timepicker" type="text" class="input-small">
+                            <i class="icon-time"></i>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3"><strong>上课学生：</strong><input id="time"/></div>
+                </div>
+                <%for(var i=0;i<date.length;i++){%>
+                <%=date[i]%>
+                <%}%>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="teacher-nav-row clearfix">
+    <span class="hd l"><%= condition.describe %>：</span>
+    <div class="bd">
+        <ul class="">
+            <% condition.items.forEach(function(item){ %>
+                <% if(item.cvalue == "all"){ %>
+                    <li class="teacher-nav-item on  search-c-condi-li" cate="<%= condition.cate  %>" cvalue="<%= item.cvalue %>">
+                        <a class="teacher-nav-item-a"><%= item.describe %></a>
+                    </li>
+                <% }else{ %>
+                    <li class="teacher-nav-item search-c-condi-li"  cate="<%= condition.cate  %>" cvalue="<%= item.cvalue %>">
+                        <a class="teacher-nav-item-a"><%= item.describe %></a>
+                    </li>
+            <% }}) %>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 0px;right: 0px;width:400px;height: 100%;border-left: #e7eaec thick solid;">
+    <div class="ibox-title">
+        <h5>课程详情</h5>
+        <div class="ibox-tools">
+            <a class="close-link">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="ibox-content">
+        <form class="form-horizontal">
+            <div class="row">
+                <div class="col-sm-3 col-sm-offset-1">
+                    <div class="row">
+                        课程名称：
+                    </div>
+                    <div class="row">
+                        课程描述：
+                    </div>
+                    <div class="row">
+                        课程简介：
+                    </div>
+                    <div class="row">
+                        课程状态：
+                    </div>
+                    <div class="row">
+                        大纲：
+                    </div>
+                    <div class="row">
+                        收费方式：
+                    </div>
+                    <div class="row">
+                        授课方式：
+                    </div>
+                    <div class="row">
+                        授课模式：
+                    </div>
+                    <div class="row">
+                        面向年龄群体：
+                    </div>
+                    <div class="row">
+                        课程价格：
+                    </div>
+                </div>
+                <div class="col-sm-4 col-sm-offset-1">
+                    <div class="row">
+                        <%= date.name %>
+                    </div>
+                    <div class="row">
+                        <%= date.info %>
+                    </div>
+                    <div class="row">
+                        <%= date.introduction %>
+                    </div>
+                    <div class="row">
+                        <%= date.statelv.name %>
+                    </div>
+                    <div class="row">
+                        <%= date.catalog %>
+                    </div>
+                    <div class="row">
+                        <%= date.billing.type.fdetail %>
+                    </div>
+                    <div class="row">
+                        <%= date.method.name %>
+                    </div>
+                    <div class="row">
+                        <%= date.mode.name %>
+                    </div>
+                    <div class="row">
+                        <%= date.range.min %>-<%= date.range.max %>
+                    </div>
+                    <div class="row">
+                        <%= date.price %>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br/>
+
+    </div>
+    <div class="ibox-title">
+        <h5>上课学生</h5>
+    </div>
+    <div class="ibox-content">
+
+    </div>
+</div>

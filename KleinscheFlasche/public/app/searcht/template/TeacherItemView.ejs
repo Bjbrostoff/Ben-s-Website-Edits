@@ -1,0 +1,24 @@
+
+<div class="col-lg-4">
+    <div class="contact-box teacher-info-box">
+        <a >
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <img alt="image" class="img-circle m-t-xs img-responsive" src="<%= teacher.portrait %>">
+                    <div class="m-t-xs font-bold"><p><%= teacher.starlevel %></p></div>
+                    <div><%= teacher.degree %></div>
+                    <!--<div><%= teacher.servexerti[1].info %></div>-->
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <h3><strong><%= teacher.name %></strong></h3>
+                <p><i class="fa fa-map-marker"></i> <%= teacher.city %></p>
+                <p> 擅长语言:&nbsp;<%= teacher.optioninfo.language.value %></p>
+                <p> 擅长学科:&nbsp;<%= teacher.optioninfo.skilledcourse.value %></p>
+                <p> 个人说明:&nbsp;<%= teacher.optioninfo.info.value %></p>
+
+            </div>
+            <div class="clearfix"></div>
+        </a>
+    </div>
+</div>

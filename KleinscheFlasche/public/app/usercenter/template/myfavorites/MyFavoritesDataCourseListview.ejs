@@ -1,0 +1,23 @@
+<div class="project-list">
+<% console.log(datas) %>
+    <div class="ibox-content">
+        <% _.each(datas, function(ditem){ %>
+        <div class="feed-element">
+            <a href="#" class="pull-left">
+                <img alt="image" class="img-circle" src="<%= ditem['imageUrl'] %>">
+            </a>
+            <div class="media-body ">
+                <small class="pull-right text-black"><%= ditem['timeago'] %></small>
+                <strong><%= ditem['course']['name'] %></strong> <strong><%= ditem['course']['introduction'] %></strong>. <br>
+                <small class="text-muted"><%= ditem['time'] %></small>
+                <div class="actions">
+                    <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞(<%=ditem['like']%>) </a>
+                    <a class="fav-item-del btn btn-xs btn-primary" data-id="<%= ditem['id'] %>" ><i class="fa fa-trash-o"></i> 删除</a>
+
+                    <a class="fav-item-more btn btn-xs btn-outline btn-primary pull-right" data-id="<%= ditem['id'] %>" >更多<i class="fa fa-long-arrow-right"></i> </a>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>

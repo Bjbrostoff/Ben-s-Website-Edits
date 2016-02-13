@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <% include ../includes/head/searchthead1.ejs %>
+    <title>B&C Planform</title>
+
+    <link rel="stylesheet" href="/stylesheets/teachers.css">
+    <link rel="stylesheet" href="/leaflet/dist/leaflet.css">
+
+</head>
+<body class="pace-done">
+
+<% include ../includes/header/nav/normal.ejs %>
+
+<div id="condition-view" class="container page-wrapper-search">
+
+</div>
+
+<div id="result-view" class="container page-wrapper-result">
+
+</div>
+
+<div>
+    <div class="main-body container clearfix">
+        <div id="profile-detail" class="l profile-detail">
+        </div>
+        <div id="profile-course" class="r space-main profile-course">
+        </div>
+
+        <div id="map-container" class="row">
+            <div id="map" class="col-lg-12" style="height: 350px;">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../includes/footer/normal.ejs %>
+
+<% include ../includes/head/searchthead2.ejs %>
+
+</body>
+
+<script src="/requirejs/require.js" data-main="/app/searcht/searchtmain.js"></script>
+</html>

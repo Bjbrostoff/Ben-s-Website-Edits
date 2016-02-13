@@ -1,0 +1,36 @@
+{
+  "name": "Kleinsche",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "ejs": "~2.3.3",
+    "express": "~4.13.1",
+    "less-middleware": "1.0.x",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0",
+    "mongoose": "~4.1.12",
+    "md5": "",
+    "nodemailer": "",
+    "node-uuid": "~1.4.7",
+    "express-session": "",
+    "multiparty": "",
+    "async": "~1.5.0",
+    "connect-mongo": ""
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-concurrent": "~2.0.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-nodemon": "~0.4.0",
+    "gulp": "^3.9.0",
+    "gulp-livereload": "",
+    "gulp-nodemon": "",
+    "jquery-validation": ""
+  }
+}
